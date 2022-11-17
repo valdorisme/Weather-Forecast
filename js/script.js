@@ -1,6 +1,5 @@
-const api = {key: "ad0c0bbd8a2bcd19f1ceba93db78197b",
-baseurl: "https://api.openweathermap.org/data/2.5/"
-}
+const api = {key: "5cab58840c05019252ba4f10de85aae3",
+baseurl: "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}"}
 
 console.log(api.key)
 
@@ -12,23 +11,24 @@ function setQuery(event) {
     // Added event listener for 'enter' key
     if (event.keyCode == 13) {
         getResults(search.value)
+        console.log(search.value)
     }
 }
 
-function getResults (query) {
+function getResults () {
     // Make sure weather is returned in degrees Fahrenheit
-    fetch('${api.base}weather?q=${query}&units=imperial&APPID=${api.key}')
+    fetch(api.baseurl)
         .then(weather => {
             return weather.json();
         }).then(displayResults);
 }
 
-function displayResults (weather) {
+function displayResults () {
     var city = document.querySelector('.location .city');
     city.innerText = '${weather.name}, ${weather.sys.country}';
 
     var today = new Date();
-    var date = document.querySelector('.location . date');
+    var date = document.querySelector('.location .date');
     date.innerText = dateBuilder(today);
 }
 
