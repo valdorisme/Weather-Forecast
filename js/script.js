@@ -4,6 +4,7 @@ baseurl: "https://api.openweathermap.org/data/2.5/"
 
 console.log(api.key)
 
+
 const search = document.querySelector('.search-box');
 search.addEventListener('keypress', setQuery);
 
