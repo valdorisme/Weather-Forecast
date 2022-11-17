@@ -36,4 +36,16 @@ function dateBuilder(d) {
     "September", "October", "November", "December"];
 
     var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    // Gets day of the week using local time
+    var days = day[d.getDay()];
+    // Gets date using local time
+    var date = d.getDate();
+    // Gets month using local time
+    var months = month[d.getMonth()];
+    // Gets year using local time
+    var year = d.getFullYear()
+
+    return '${days} ${date} ${months} ${year}';
+
 }
