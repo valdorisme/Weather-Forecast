@@ -1,5 +1,5 @@
-const api = {key: "5cab58840c05019252ba4f10de85aae3",
-baseurl: "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}"}
+const api = {key: "ad0c0bbd8a2bcd19f1ceba93db78197b",
+baseurl: "https://api.openweathermap.org/data/2.5/"}
 
 console.log(api.key)
 
@@ -15,9 +15,9 @@ function setQuery(event) {
     }
 }
 
-function getResults () {
-    // Make sure weather is returned in degrees Fahrenheit
-    fetch(api.baseurl)
+function getResults (query) {
+    // Fetching API
+    fetch(`${api.baseurl}weather?q=${query}&APPID=ad0c0bbd8a2bcd19f1ceba93db78197b`)
         .then(weather => {
             return weather.json();
         }).then(displayResults);
