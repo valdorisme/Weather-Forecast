@@ -47,6 +47,6 @@ function dateBuilder(d) {
     // Gets year using local time
     var year = d.getFullYear()
 
-    return '${days} ${date} ${months} ${year}';
+    return ('${days} ${date} ${months} ${year}');
 
 }
