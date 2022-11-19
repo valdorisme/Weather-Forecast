@@ -101,3 +101,21 @@ main {
     font-style: oblique;
     margin-bottom: 15px;
 }
+
+#five-day {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    width: 1300px;
+    border: 5px solid white;
+    border-radius: 10px;
+}
+
+.day-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
