@@ -23,13 +23,22 @@ function getResults (query) {
         }).then(displayResults);
 }
 
-function displayResults () {
+function displayResults (weather) {
     var city = document.querySelector('.location .city');
-    city.innerText = '${weather.name}, ${weather.sys.country}';
+    city.innerText = `${weather.name}, ${weather.sys.country}`;
 
     var today = new Date();
     var date = document.querySelector('.location .date');
     date.innerText = dateBuilder(today);
+
+    var temp = document.querySelector('.current .temp');
+    temp.innerHTML = `${Math.round(weather.main.temp)}`
+
+    var weatherTemp = document.querySelector('.current .weather');
+    weatherTemp.innerText = weather.weather[0].main;
+
+    var hilow = document.querySelector('.hi-low');
+    hilow.innerText = `${weather.main.temp_min} / ${weather.main.temp_max}`;
 }
 
 function dateBuilder(d) {
@@ -47,6 +56,5 @@ function dateBuilder(d) {
     // Gets year using local time
     var year = d.getFullYear()
 
-    return ('${days} ${date} ${months} ${year}');
-
+    return (`${days} ${date} ${months} ${year}`);
 }
