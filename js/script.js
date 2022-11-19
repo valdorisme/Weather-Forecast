@@ -38,7 +38,7 @@ function displayResults (weather) {
     weatherTemp.innerText = weather.weather[0].main;
 
     var hilow = document.querySelector('.hi-low');
-    hilow.innerText = `${weather.main.temp_min} °F / ${weather.main.temp_max} °F`;
+    hilow.innerText = `${Math.round(weather.main.temp_min)} °F / ${Math.round(weather.main.temp_max)} °F`;
 }
 
 function dateBuilder(d) {
