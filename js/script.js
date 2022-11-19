@@ -3,13 +3,12 @@ baseurl: "https://api.openweathermap.org/data/2.5/"}
 
 console.log(api.key)
 
-const forcast = []
 
+// Adding event listener for when Enter key is pressed
 const search = document.querySelector('.search-box');
 search.addEventListener('keypress', setQuery);
 
 function setQuery(event) {
-    // Added event listener for 'enter' key
     if (event.keyCode == 13) {
         getResults(search.value)
         console.log(search.value)
@@ -22,8 +21,10 @@ function getResults (query) {
         .then(weather => {
             return weather.json();
         }).then(displayResults);
+
 }
 
+// Results of when City name is typed in
 function displayResults (weather) {
     var city = document.querySelector('.location .city');
     city.innerText = `${weather.name}, ${weather.sys.country}`;
@@ -40,10 +41,17 @@ function displayResults (weather) {
 
     var hilow = document.querySelector('.hi-low');
     hilow.innerText = `${Math.round(weather.main.temp_min)} °F / ${Math.round(weather.main.temp_max)} °F`;
+
+    document.querySelector('.day-box .date').textContent = date
+    for (var i=0; i <5; i++) {
+        document.getElementById(i).classList.add(today[i], temp[i], weatherTemp[i], hilow[i]);
+}
     
 }
 
+// Incorporating local dates
 function dateBuilder(d) {
+
     var month = ["January", "February", "March", "April", "May", "June", "July", "August",
     "September", "October", "November", "December"];
 
@@ -57,12 +65,6 @@ function dateBuilder(d) {
     var months = month[d.getMonth()];
     // Gets year using local time
     var year = d.getFullYear()
-
-    // For Loop to display five day weather forecast
-    for(i=0;i<5;i++) {
-        weather = document.getElementById(i) + days
-        // var now = data.current  
-    }
 
     return (`${days} ${date} ${months} ${year}`);
 }
