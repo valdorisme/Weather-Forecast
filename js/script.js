@@ -3,6 +3,7 @@ baseurl: "https://api.openweathermap.org/data/2.5/"}
 
 console.log(api.key)
 
+const forcast = []
 
 const search = document.querySelector('.search-box');
 search.addEventListener('keypress', setQuery);
@@ -39,6 +40,7 @@ function displayResults (weather) {
 
     var hilow = document.querySelector('.hi-low');
     hilow.innerText = `${Math.round(weather.main.temp_min)} °F / ${Math.round(weather.main.temp_max)} °F`;
+    
 }
 
 function dateBuilder(d) {
@@ -56,5 +58,12 @@ function dateBuilder(d) {
     // Gets year using local time
     var year = d.getFullYear()
 
+    // For Loop to display five day weather forecast
+    for(i=0;i<5;i++) {
+        weather = document.getElementById(i) + days
+        // var now = data.current  
+    }
+
     return (`${days} ${date} ${months} ${year}`);
 }
+
