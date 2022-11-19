@@ -17,7 +17,7 @@ function setQuery(event) {
 
 function getResults (query) {
     // Fetching API
-    fetch(`${api.baseurl}weather?q=${query}&APPID=ad0c0bbd8a2bcd19f1ceba93db78197b`)
+    fetch(`${api.baseurl}weather?q=${query}&units=imperial&APPID=ad0c0bbd8a2bcd19f1ceba93db78197b`)
         .then(weather => {
             return weather.json();
         }).then(displayResults);
@@ -32,13 +32,13 @@ function displayResults (weather) {
     date.innerText = dateBuilder(today);
 
     var temp = document.querySelector('.current .temp');
-    temp.innerHTML = `${Math.round(weather.main.temp)}`
+    temp.innerHTML = `${Math.round(weather.main.temp)} <span>°F</span>`
 
     var weatherTemp = document.querySelector('.current .weather');
     weatherTemp.innerText = weather.weather[0].main;
 
     var hilow = document.querySelector('.hi-low');
-    hilow.innerText = `${weather.main.temp_min} / ${weather.main.temp_max}`;
+    hilow.innerText = `${weather.main.temp_min} °F / ${weather.main.temp_max} °F`;
 }
 
 function dateBuilder(d) {
