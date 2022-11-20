@@ -144,3 +144,31 @@ main {
     font-weight: 900;
     line-height: 2.8;
 }
+
+
+@media only screen and (max-width: 700px) {
+    body{
+        width: 100%;
+        display: block;
+    }
+
+    #day-container {
+        position: block;
+        top: 90%;
+        left: 43%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        height: 40px;
+        width: 120px;   
+}
+
+    #five-day {
+        position: absolute;
+        top: 95%;
+        left: 40%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        height: 30px;
+        width: 130px;
+    }
+}
