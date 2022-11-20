@@ -42,11 +42,11 @@ function displayResults (weather) {
     var hilow = document.querySelector('.hi-low');
     hilow.innerText = `${Math.round(weather.main.temp_min)} °F / ${Math.round(weather.main.temp_max)} °F`;
 
-    document.querySelector('.day-box .date').textContent = forecast
+    document.querySelector('.day-box .date').textContent = date
     for (var i=0; i <5; i++) {
         document.getElementById(i).classList.add(today[i], temp[i], weatherTemp[i], hilow[i]);
 
-    return forecast
+
 }
     
 }
